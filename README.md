@@ -35,4 +35,3 @@ console.log(typeof age)
 
 //Concatenation
 console.log('My name is ' +() name + ' and I am ' + age);
-// Template
