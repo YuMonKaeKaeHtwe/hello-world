@@ -1,17 +1,29 @@
-console.log('Hello World');
-console.error('This is an error');
-// String, Numbers, Boolean, null, undefined
+const myForm = document.getElementById('my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.getElementsByClassName('msg');
+const userlist = document.querySelector('#users');
 
-const name = 'Yumon';
-const age = 26;
-const rating = 5;
+myForm.addEventListener('submit', onSubmit);
 
+ function onSubmit(e) {
+     e.preventDefault();
 
-console.log(typeof name)
-console.log(typeof age)
+     if(nameInput.value === '' || emailInput.value === '') {
+         msg.classList.add('error');
+         msg.innerHTML = 'Please enter all fields';
 
-//Concatenation
-console.log('My name is ' +() name + ' and I am ' + age);
-// Template
+         setTimeout(() => msg.remove(), 3000);
+     } else {
+         const li = document.createElement('li');
+         li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
 
-const fruits = 
+        userlist.appendChild(li);
+
+        // Clear fields
+        nameInput.value = '';
+        emailInput.value = '';
+     }
+ }
+
+ 
